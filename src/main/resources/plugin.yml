@@ -1,0 +1,6 @@
+name: LobbyGuard
+version: 1.0
+main: me.baiyi.paper.lobbyguard.LobbyGuard
+api-version: 1.20
+author: BAIYI
+description: A simple lobby protection plugin for Paper 1.20.1
