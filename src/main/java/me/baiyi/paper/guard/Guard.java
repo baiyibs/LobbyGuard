@@ -8,6 +8,7 @@ import me.baiyi.paper.guard.manager.ConfigManager;
 import me.baiyi.paper.guard.manager.FeatureManager;
 import me.baiyi.paper.guard.manager.MessageManager;
 import me.baiyi.paper.guard.manager.PermissionManager;
+import me.baiyi.paper.guard.manager.WhitelistManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,6 +29,7 @@ public class Guard extends JavaPlugin {
         FeatureManager featureManager = FeatureManager.getInstance();
         MessageManager messageManager = MessageManager.getInstance();
         PermissionManager.getInstance();
+        WhitelistManager.getInstance();
 
         // 注册监听器
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);

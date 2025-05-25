@@ -3,6 +3,7 @@ package me.baiyi.paper.guard.listener;
 import me.baiyi.paper.guard.manager.FeatureManager;
 import me.baiyi.paper.guard.manager.MessageManager;
 import me.baiyi.paper.guard.manager.PermissionManager;
+import me.baiyi.paper.guard.manager.WhitelistManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -51,6 +52,17 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+
+        // 白名单检查
+        WhitelistManager whitelistManager = WhitelistManager.getInstance();
+        if (whitelistManager.isWhitelistEnabled()) {
+            if (!whitelistManager.getWhitelistPlayers().contains(player.getName())) {
+                player.kickPlayer(MessageManager.getInstance().getMessage("messages.not-whitelisted", "§c你不在服务器白名单内！"));
+                event.setJoinMessage(null);
+                return;
+            }
+        }
+
         if (FeatureManager.getInstance().isAdventureOnJoinEnabled()) {
             if (!PermissionManager.getInstance().hasPermission(player, PermissionManager.PERM_ADVENTURE)) {
                 player.setGameMode(GameMode.ADVENTURE);

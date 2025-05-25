@@ -3,6 +3,26 @@
 # 消息前缀
 message-prefix: "§8[§bGuard§8] §7"
 
+# 白名单设置
+whitelist:
+  # 白名单列表获取方式 (config 或 database)
+  source: "config"
+  # 是否启用白名单
+  enabled: false
+  # 白名单玩家列表
+  players:
+    - "Player1"
+    - "Player2"
+
+# 数据库配置 (用于白名单)
+database:
+  host: "localhost"
+  port: 3306
+  database: "guard"
+  username: "root"
+  password: "password"
+  table: "whitelist"
+
 # 功能开关
 features:
   # 是否允许生物生成
@@ -39,8 +59,10 @@ messages:
   # 无法放置方块的提示
   no-place: "%prefix%§c你不能放置方块！"
   # 无法丢弃物品的提示
-  no-drop: "%prefix%§c你不能丢弃物品！"
+  no-drop: "%prefix%§c你不能放置方块！"
   # 无法拾取物品的提示
   no-pickup: "%prefix%§c你不能拾取物品！"
   # 命令相关消息
   usage: "%prefix%§c用法: /guard reload"
+  # 白名单相关消息
+  not-whitelisted: "%prefix%§c你不在服务器白名单内！"

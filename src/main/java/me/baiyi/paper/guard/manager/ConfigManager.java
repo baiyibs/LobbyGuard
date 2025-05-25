@@ -3,6 +3,8 @@ package me.baiyi.paper.guard.manager;
 import me.baiyi.paper.guard.Guard;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.List;
+
 public class ConfigManager {
     private static ConfigManager instance;
     private FileConfiguration config;
@@ -26,5 +28,24 @@ public class ConfigManager {
 
     public FileConfiguration getConfig() {
         return config;
+    }
+
+    public String getDatabaseUrl() {
+        String host = config.getString("database.host", "localhost");
+        int port = config.getInt("database.port", 3306);
+        String database = config.getString("database.database", "guard");
+        return "jdbc:mysql://" + host + ":" + port + "/" + database + "?createDatabaseIfNotExist=true";
+    }
+
+    public String getDatabaseUsername() {
+        return config.getString("database.username", "root");
+    }
+
+    public String getDatabasePassword() {
+        return config.getString("database.password", "password");
+    }
+
+    public String getDatabaseTable() {
+        return config.getString("database.table", "whitelist");
     }
 }
