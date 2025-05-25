@@ -1,4 +1,4 @@
-# LobbyGuard
+# Guard
 
 一个简单的大厅保护插件，适用于Paper 1.20.1。
 
