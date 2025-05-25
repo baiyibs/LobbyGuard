@@ -4,3 +4,38 @@ main: me.baiyi.paper.lobbyguard.LobbyGuard
 api-version: 1.20
 author: BAIYI
 description: A simple lobby protection plugin for Paper 1.20.1
+
+permissions:
+  lobbyguard.break:
+    description: 是否允许玩家允许破坏方块
+    default: op
+  lobbyguard.place:
+    description: 是否允许玩家允许放置方块
+    default: op
+  lobbyguard.drop:
+    description: 是否允许玩家允许丢弃物品
+    default: op
+  lobbyguard.pickup:
+    description: 是否允许玩家允许拾取物品
+    default: op
+  lobbyguard.adventure:
+    description: 是否允许玩家允许更改游戏模式
+    default: op
+  lobbyguard.inventory:
+    description: 是否允许玩家允许保留背包物品
+    default: op
+  lobbyguard.admin:
+    description: 管理员权限
+    default: op
+    children:
+      lobbyguard.break: true
+      lobbyguard.place: true
+      lobbyguard.drop: true
+      lobbyguard.pickup: true
+      lobbyguard.adventure: true
+      lobbyguard.inventory: true
+  lobbyguard.*:
+    description: 所有权限
+    default: op
+    children:
+      lobbyguard.admin: true

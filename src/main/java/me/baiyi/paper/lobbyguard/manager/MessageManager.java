@@ -1,4 +1,4 @@
-package me.baiyi.paper.lobbyguard;
+package me.baiyi.paper.lobbyguard.manager;
 
 public class MessageManager {
     private static MessageManager instance;
@@ -15,11 +15,11 @@ public class MessageManager {
         return instance;
     }
 
-    public String getMessage(String path) {
-        return configManager.getConfig().getString(path);
-    }
-
     public String getMessage(String path, String defaultValue) {
         return configManager.getConfig().getString(path, defaultValue);
+    }
+
+    public String getMessage(String path) {
+        return configManager.getConfig().getString(path);
     }
 }

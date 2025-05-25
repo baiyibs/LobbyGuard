@@ -1,4 +1,4 @@
-package me.baiyi.paper.lobbyguard;
+package me.baiyi.paper.lobbyguard.manager;
 
 public class FeatureManager {
     private static FeatureManager instance;
@@ -16,38 +16,38 @@ public class FeatureManager {
     }
 
     public boolean isCreatureSpawnEnabled() {
-        return configManager.getConfig().getBoolean("features.creature-spawn", false);
+        return !configManager.getConfig().getBoolean("creature-spawn", true);
     }
 
     public boolean isBlockBreakEnabled() {
-        return configManager.getConfig().getBoolean("features.block-break", false);
+        return !configManager.getConfig().getBoolean("block-break", true);
     }
 
     public boolean isBlockPlaceEnabled() {
-        return configManager.getConfig().getBoolean("features.block-place", false);
+        return !configManager.getConfig().getBoolean("block-place", true);
     }
 
     public boolean isPlayerDamageEnabled() {
-        return configManager.getConfig().getBoolean("features.player-damage", false);
+        return !configManager.getConfig().getBoolean("player-damage", true);
     }
 
     public boolean isHungerEnabled() {
-        return configManager.getConfig().getBoolean("features.hunger", false);
+        return !configManager.getConfig().getBoolean("hunger", true);
     }
 
     public boolean isItemDropEnabled() {
-        return configManager.getConfig().getBoolean("features.item-drop", false);
+        return !configManager.getConfig().getBoolean("item-drop", true);
     }
 
     public boolean isItemPickupEnabled() {
-        return configManager.getConfig().getBoolean("features.item-pickup", false);
+        return !configManager.getConfig().getBoolean("item-pickup", true);
     }
 
     public boolean isAdventureOnJoinEnabled() {
-        return configManager.getConfig().getBoolean("features.adventure-on-join", true);
+        return configManager.getConfig().getBoolean("adventure-on-join", true);
     }
 
     public boolean isClearInventoryOnJoinEnabled() {
-        return configManager.getConfig().getBoolean("features.clear-inventory-on-join", true);
+        return configManager.getConfig().getBoolean("clear-inventory-on-join", true);
     }
 }
