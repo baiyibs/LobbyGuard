@@ -1,4 +1,4 @@
-package me.baiyi.paper.lobbyguard.manager;
+package me.baiyi.paper.guard.manager;
 
 import org.bukkit.entity.Player;
 
@@ -19,7 +19,7 @@ public class PermissionManager {
             return true;
         }
 
-        if (player.hasPermission("lobbyguard.*")) {
+        if (player.hasPermission("guard.*")) {
             return true;
         }
 
@@ -31,11 +31,11 @@ public class PermissionManager {
     }
 
     // 常用权限常量
-    public static final String PERM_BREAK = "lobbyguard.break";
-    public static final String PERM_PLACE = "lobbyguard.place";
-    public static final String PERM_DROP = "lobbyguard.drop";
-    public static final String PERM_PICKUP = "lobbyguard.pickup";
-    public static final String PERM_ADVENTURE = "lobbyguard.adventure";
-    public static final String PERM_INVENTORY = "lobbyguard.inventory";
-    public static final String PERM_ADMIN = "lobbyguard.admin";
+    public static final String PERM_BREAK = "guard.break";
+    public static final String PERM_PLACE = "guard.place";
+    public static final String PERM_DROP = "guard.drop";
+    public static final String PERM_PICKUP = "guard.pickup";
+    public static final String PERM_ADVENTURE = "guard.adventure";
+    public static final String PERM_INVENTORY = "guard.inventory";
+    public static final String PERM_ADMIN = "guard.admin";
 }

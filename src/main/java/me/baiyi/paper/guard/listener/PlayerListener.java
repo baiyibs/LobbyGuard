@@ -1,8 +1,8 @@
-package me.baiyi.paper.lobbyguard.listener;
+package me.baiyi.paper.guard.listener;
 
-import me.baiyi.paper.lobbyguard.manager.FeatureManager;
-import me.baiyi.paper.lobbyguard.manager.MessageManager;
-import me.baiyi.paper.lobbyguard.manager.PermissionManager;
+import me.baiyi.paper.guard.manager.FeatureManager;
+import me.baiyi.paper.guard.manager.MessageManager;
+import me.baiyi.paper.guard.manager.PermissionManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;

@@ -1,6 +1,6 @@
-package me.baiyi.paper.lobbyguard.manager;
+package me.baiyi.paper.guard.manager;
 
-import me.baiyi.paper.lobbyguard.LobbyGuard;
+import me.baiyi.paper.guard.Guard;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class ConfigManager {
@@ -8,8 +8,8 @@ public class ConfigManager {
     private FileConfiguration config;
 
     private ConfigManager() {
-        LobbyGuard.getInstance().saveDefaultConfig();
-        config = LobbyGuard.getInstance().getConfig();
+        Guard.getInstance().saveDefaultConfig();
+        config = Guard.getInstance().getConfig();
     }
 
     public static ConfigManager getInstance() {
@@ -20,8 +20,8 @@ public class ConfigManager {
     }
 
     public void reloadConfig() {
-        LobbyGuard.getInstance().reloadConfig();
-        config = LobbyGuard.getInstance().getConfig();
+        Guard.getInstance().reloadConfig();
+        config = Guard.getInstance().getConfig();
     }
 
     public FileConfiguration getConfig() {

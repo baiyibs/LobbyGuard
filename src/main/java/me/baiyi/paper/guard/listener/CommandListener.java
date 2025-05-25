@@ -1,8 +1,8 @@
-package me.baiyi.paper.lobbyguard.listener;
+package me.baiyi.paper.guard.listener;
 
-import me.baiyi.paper.lobbyguard.manager.ConfigManager;
-import me.baiyi.paper.lobbyguard.manager.FeatureManager;
-import me.baiyi.paper.lobbyguard.manager.MessageManager;
+import me.baiyi.paper.guard.manager.ConfigManager;
+import me.baiyi.paper.guard.manager.FeatureManager;
+import me.baiyi.paper.guard.manager.MessageManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -28,7 +28,7 @@ public class CommandListener implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (!player.hasPermission("lobbyguard.admin")) {
+        if (!player.hasPermission("guard.admin")) {
             player.sendMessage(messageManager.getMessage("no-permission"));
             return true;
         }

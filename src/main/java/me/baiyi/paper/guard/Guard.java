@@ -1,19 +1,19 @@
-package me.baiyi.paper.lobbyguard;
+package me.baiyi.paper.guard;
 
-import me.baiyi.paper.lobbyguard.listener.PlayerListener;
-import me.baiyi.paper.lobbyguard.listener.WorldListener;
-import me.baiyi.paper.lobbyguard.listener.CommandListener;
-import me.baiyi.paper.lobbyguard.manager.ConfigManager;
-import me.baiyi.paper.lobbyguard.manager.FeatureManager;
-import me.baiyi.paper.lobbyguard.manager.MessageManager;
-import me.baiyi.paper.lobbyguard.manager.PermissionManager;
+import me.baiyi.paper.guard.listener.PlayerListener;
+import me.baiyi.paper.guard.listener.WorldListener;
+import me.baiyi.paper.guard.listener.CommandListener;
+import me.baiyi.paper.guard.manager.ConfigManager;
+import me.baiyi.paper.guard.manager.FeatureManager;
+import me.baiyi.paper.guard.manager.MessageManager;
+import me.baiyi.paper.guard.manager.PermissionManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class LobbyGuard extends JavaPlugin {
-    private static LobbyGuard instance;
+public class Guard extends JavaPlugin {
+    private static Guard instance;
 
-    public static LobbyGuard getInstance() {
+    public static Guard getInstance() {
         return instance;
     }
 
@@ -34,11 +34,11 @@ public class LobbyGuard extends JavaPlugin {
         // 注册命令执行器
         this.getCommand("guard").setExecutor(new CommandListener(configManager, featureManager, messageManager));
 
-        getLogger().info("LobbyGuard enabled!");
+        getLogger().info("Guard enabled!");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("LobbyGuard disabled.");
+        getLogger().info("Guard disabled.");
     }
 }

@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.baiyi.paper</groupId>
-    <artifactId>lobbyguard</artifactId>
+    <artifactId>guard</artifactId>
     <version>1.0</version>
-    <name>LobbyGuard</name>
+    <name>Guard</name>
 
     <build>
         <plugins>
@@ -26,7 +26,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>me.baiyi.paper.lobbyguard.LobbyGuard</mainClass>
+                            <mainClass>me.baiyi.paper.guard.Guard</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

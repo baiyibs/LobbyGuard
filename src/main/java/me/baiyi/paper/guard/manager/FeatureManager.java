@@ -1,4 +1,4 @@
-package me.baiyi.paper.lobbyguard.manager;
+package me.baiyi.paper.guard.manager;
 
 public class FeatureManager {
     private static FeatureManager instance;

@@ -1,48 +1,48 @@
-name: LobbyGuard
+name: Guard
 version: 1.0
-main: me.baiyi.paper.lobbyguard.LobbyGuard
+main: me.baiyi.paper.guard.Guard
 api-version: 1.20
 author: BAIYI
 description: A simple lobby protection plugin for Paper 1.20.1
 
 permissions:
-  lobbyguard.break:
+  guard.break:
     description: 是否允许玩家允许破坏方块
     default: op
-  lobbyguard.place:
+  guard.place:
     description: 是否允许玩家允许放置方块
     default: op
-  lobbyguard.drop:
+  guard.drop:
     description: 是否允许玩家允许丢弃物品
     default: op
-  lobbyguard.pickup:
+  guard.pickup:
     description: 是否允许玩家允许拾取物品
     default: op
-  lobbyguard.adventure:
+  guard.adventure:
     description: 是否允许玩家允许更改游戏模式
     default: op
-  lobbyguard.inventory:
+  guard.inventory:
     description: 是否允许玩家允许保留背包物品
     default: op
-  lobbyguard.admin:
+  guard.admin:
     description: 管理员权限
     default: op
     children:
-      lobbyguard.break: true
-      lobbyguard.place: true
-      lobbyguard.drop: true
-      lobbyguard.pickup: true
-      lobbyguard.adventure: true
-      lobbyguard.inventory: true
-  lobbyguard.*:
+      guard.break: true
+      guard.place: true
+      guard.drop: true
+      guard.pickup: true
+      guard.adventure: true
+      guard.inventory: true
+  guard.*:
     description: 所有权限
     default: op
     children:
-      lobbyguard.admin: true
+      guard.admin: true
 
 commands:
   guard:
-    description: LobbyGuard 主命令
+    description: Guard 主命令
     usage: /guard reload - 重新加载配置
-    permission: lobbyguard.admin
+    permission: guard.admin
     permission-message: §c你没有权限使用此命令！
