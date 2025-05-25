@@ -23,10 +23,6 @@ public class PermissionManager {
             return true;
         }
 
-        if (player.isOp()) {
-            return true;
-        }
-
         return false;
     }
 
