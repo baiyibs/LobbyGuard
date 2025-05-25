@@ -3,8 +3,6 @@ package me.baiyi.paper.guard.manager;
 import me.baiyi.paper.guard.Guard;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.util.List;
-
 public class ConfigManager {
     private static ConfigManager instance;
     private FileConfiguration config;

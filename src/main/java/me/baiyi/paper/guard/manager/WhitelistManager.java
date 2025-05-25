@@ -125,4 +125,84 @@ public class WhitelistManager {
             Guard.getInstance().getLogger().info("Created whitelist table: " + tableName);
         }
     }
+
+    public void addPlayerToWhitelist(String playerName, String playerUUID) {
+        String source = configManager.getConfig().getString("whitelist.source", "config");
+    
+        if ("database".equalsIgnoreCase(source) && databaseConnectedSuccessfully) {
+            addPlayerToDatabase(playerName, playerUUID);
+        } else {
+            addPlayerToConfig(playerName, playerUUID);
+        }
+        
+        if (!whitelistPlayers.contains(playerName + ":" + playerUUID)) {
+            whitelistPlayers.add(playerName + ":" + playerUUID);
+        }
+    }
+
+    private void addPlayerToConfig(String playerName, String playerUUID) {
+        List<String> players = configManager.getConfig().getStringList("whitelist.players");
+        String playerEntry = playerName + ":" + playerUUID;
+        if (!players.contains(playerEntry)) {
+            players.add(playerEntry);
+            configManager.getConfig().set("whitelist.players", players);
+            Guard.getInstance().saveConfig();
+        }
+    }
+
+    private void addPlayerToDatabase(String playerName, String playerUUID) {
+        String url = configManager.getDatabaseUrl();
+        String user = configManager.getDatabaseUsername();
+        String password = configManager.getDatabasePassword();
+        String table = configManager.getDatabaseTable();
+    
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            String sql = "INSERT IGNORE INTO " + table + " (player_name, player_uuid) VALUES (?, ?);";            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, playerName);
+                stmt.setString(2, playerUUID);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            Guard.getInstance().getLogger().severe("Failed to add player to database whitelist: " + e.getMessage());
+        }
+    }
+    
+    public void removePlayerFromWhitelist(String playerName, String playerUUID) {
+        String source = configManager.getConfig().getString("whitelist.source", "config");
+    
+        if ("database".equalsIgnoreCase(source) && databaseConnectedSuccessfully) {
+            removePlayerFromDatabase(playerName, playerUUID);
+        } else {
+            removePlayerFromConfig(playerName, playerUUID);
+        }
+    
+        whitelistPlayers.remove(playerName + ":" + playerUUID);
+    }
+
+    private void removePlayerFromConfig(String playerName, String playerUUID) {
+        List<String> players = configManager.getConfig().getStringList("whitelist.players");
+        String playerEntry = playerName + ":" + playerUUID;
+        if (players.remove(playerEntry)) {
+            configManager.getConfig().set("whitelist.players", players);
+            Guard.getInstance().saveConfig();
+        }
+    }
+
+    private void removePlayerFromDatabase(String playerName, String playerUUID) {
+        String url = configManager.getDatabaseUrl();
+        String user = configManager.getDatabaseUsername();
+        String password = configManager.getDatabasePassword();
+        String table = configManager.getDatabaseTable();
+    
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            String sql = "DELETE FROM " + table + " WHERE player_name = ? AND player_uuid = ?;";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, playerName);
+                stmt.setString(2, playerUUID);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            Guard.getInstance().getLogger().severe("Failed to remove player from database whitelist: " + e.getMessage());
+        }
+    }
 }

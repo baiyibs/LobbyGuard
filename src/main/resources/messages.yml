@@ -1,0 +1,36 @@
+# 消息配置文件
+
+# 消息前缀
+prefix: "§8[§bLobbyGuard§8]§r"
+
+# 权限不足消息
+no-permission: "%prefix% §c你没有权限执行此命令。"
+
+# 重载成功消息
+reload-success: "%prefix% §a配置文件已重新加载。"
+
+# 命令用法消息
+usage: "%prefix% §c用法: /guard <add|remove|list|reload> <player>"
+
+# 白名单相关消息
+whitelist-add-success: "%prefix% §a玩家 %player% 已被添加到白名单。"
+whitelist-remove-success: "%prefix% §a玩家 %player% 已被从白名单中移除。"
+whitelist-list: "%prefix% §a当前白名单玩家: %players%"
+
+# 未在白名单中的消息
+not-whitelisted: |
+  §8§m------------------§r §b大厅保护 §8§m------------------§r
+  
+  §c抱歉，你不在白名单中。
+  §7请联系管理员将你添加到白名单。
+  
+  §8§m------------------------------------------§r
+
+# 方块交互消息
+block-interaction: "%prefix% §c你不能与此方块交互。"
+
+# 加入消息
+join-message: "%prefix% §a欢迎 %player% 加入服务器！"
+
+# 退出消息
+quit-message: "%prefix% §e%player% 离开了服务器。"

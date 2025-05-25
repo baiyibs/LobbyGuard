@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -50,18 +51,24 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
+    public void onAsyncPlayerPreLogin(AsyncPlayerPreLoginEvent event) {
+        String playerName = event.getName();
 
         // 白名单检查
         WhitelistManager whitelistManager = WhitelistManager.getInstance();
         if (whitelistManager.isWhitelistEnabled()) {
-            if (!whitelistManager.getWhitelistPlayers().contains(player.getName())) {
-                player.kickPlayer(MessageManager.getInstance().getMessage("messages.not-whitelisted", "§c你不在服务器白名单内！"));
-                event.setJoinMessage(null);
+            if (!whitelistManager.getWhitelistPlayers().contains(playerName)) {
+                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_WHITELIST, MessageManager.getInstance().getMessage("messages.not-whitelisted", "§c你不在服务器白名单内！"));
                 return;
             }
         }
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+
+        // 移除白名单检查逻辑
 
         if (FeatureManager.getInstance().isAdventureOnJoinEnabled()) {
             if (!PermissionManager.getInstance().hasPermission(player, PermissionManager.PERM_ADVENTURE)) {

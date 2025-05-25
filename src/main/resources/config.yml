@@ -65,4 +65,7 @@ messages:
   # 命令相关消息
   usage: "%prefix%§c用法: /guard reload"
   # 白名单相关消息
-  not-whitelisted: "%prefix%§c你不在服务器白名单内！"
+  not-whitelisted: |
+    %prefix%§c你不在服务器白名单内！
+    请联系管理员以获取访问权限。
+    感谢您的理解！
