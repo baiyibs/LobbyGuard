@@ -13,9 +13,9 @@
 
 ## 权限
 
-- `lobbyguard.break` - 破坏方块
-- `lobbyguard.place` - 放置方块
-- `lobbyguard.drop` - 丢弃物品
-- `lobbyguard.pickup` - 拾取物品
-- `lobbyguard.adventure` - 更改游戏模式
-- `lobbyguard.inventory` - 保留背包
+- `guard.break` - 破坏方块
+- `guard.place` - 放置方块
+- `guard.drop` - 丢弃物品
+- `guard.pickup` - 拾取物品
+- `guard.adventure` - 更改游戏模式
+- `guard.inventory` - 保留背包
