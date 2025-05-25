@@ -21,20 +21,16 @@ public class CommandListener implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage("该命令只能由玩家执行！");
-            return true;
-        }
-
-        Player player = (Player) sender;
-
-        if (!player.hasPermission("guard.admin")) {
-            player.sendMessage(messageManager.getMessage("no-permission"));
-            return true;
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            if (!player.hasPermission("guard.admin")) {
+                player.sendMessage(messageManager.getMessage("messages.no-permission"));
+                return true;
+            }
         }
 
         if (args.length < 1 || !args[0].equalsIgnoreCase("reload")) {
-            player.sendMessage("§c用法: /guard reload");
+            sender.sendMessage(messageManager.getMessage("messages.usage", "%prefix%§c用法: /guard reload"));
             return true;
         }
 
@@ -43,7 +39,7 @@ public class CommandListener implements CommandExecutor {
         featureManager.reloadFeatures();
         messageManager.reloadMessages();
 
-        player.sendMessage(messageManager.getMessage("reload-success"));
+        sender.sendMessage(messageManager.getMessage("messages.reload-success"));
         return true;
     }
 }

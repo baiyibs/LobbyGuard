@@ -20,10 +20,18 @@ public class MessageManager {
     }
 
     public String getMessage(String path, String defaultValue) {
-        return configManager.getConfig().getString(path, defaultValue);
+        String message = configManager.getConfig().getString(path, defaultValue);
+        return formatMessage(message);
     }
 
     public String getMessage(String path) {
-        return configManager.getConfig().getString(path);
+        String message = configManager.getConfig().getString(path);
+        return formatMessage(message);
+    }
+
+    private String formatMessage(String message) {
+        if (message == null) return "";
+        String prefix = configManager.getConfig().getString("message-prefix", "§8[§bGuard§8] §7");
+        return message.replace("%prefix%", prefix);
     }
 }

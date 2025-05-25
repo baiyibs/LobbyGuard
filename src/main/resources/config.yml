@@ -1,7 +1,7 @@
-# LobbyGuard Configuration
+# Guard Configuration
 
 # 消息前缀
-message-prefix: "§8[§bLobbyGuard§8] §7"
+message-prefix: "§8[§bGuard§8] §7"
 
 # 功能开关
 features:
@@ -42,3 +42,5 @@ messages:
   no-drop: "%prefix%§c你不能丢弃物品！"
   # 无法拾取物品的提示
   no-pickup: "%prefix%§c你不能拾取物品！"
+  # 命令相关消息
+  usage: "%prefix%§c用法: /guard reload"
