@@ -2,6 +2,7 @@ package me.baiyi.paper.lobbyguard;
 
 import me.baiyi.paper.lobbyguard.listener.PlayerListener;
 import me.baiyi.paper.lobbyguard.listener.WorldListener;
+import me.baiyi.paper.lobbyguard.listener.CommandListener;
 import me.baiyi.paper.lobbyguard.manager.ConfigManager;
 import me.baiyi.paper.lobbyguard.manager.FeatureManager;
 import me.baiyi.paper.lobbyguard.manager.MessageManager;
@@ -21,14 +22,17 @@ public class LobbyGuard extends JavaPlugin {
         instance = this;
         
         // 初始化管理器
-        ConfigManager.getInstance();
-        FeatureManager.getInstance();
-        MessageManager.getInstance();
+        ConfigManager configManager = ConfigManager.getInstance();
+        FeatureManager featureManager = FeatureManager.getInstance();
+        MessageManager messageManager = MessageManager.getInstance();
         PermissionManager.getInstance();
 
         // 注册监听器
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
+
+        // 注册命令执行器
+        this.getCommand("guard").setExecutor(new CommandListener(configManager, featureManager, messageManager));
 
         getLogger().info("LobbyGuard enabled!");
     }

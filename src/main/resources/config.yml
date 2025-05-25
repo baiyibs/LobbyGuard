@@ -1,5 +1,8 @@
 # LobbyGuard Configuration
 
+# 消息前缀
+message-prefix: "§8[§bLobbyGuard§8] §7"
+
 # 功能开关
 features:
   # 是否允许生物生成
@@ -24,10 +27,18 @@ features:
 # 消息设置
 messages:
   # 加入消息 (%player% 将被替换为玩家名)
-  join: "§a%player% 加入了游戏！"
+  join: "%prefix%§a%player% 加入了游戏！"
   # 离开消息 (%player% 将被替换为玩家名)
-  quit: "§c%player% 离开了游戏！"
+  quit: "%prefix%§c%player% 离开了游戏！"
+  # 无权限提示
+  no-permission: "%prefix%§c你没有权限执行此操作！"
+  # 重载成功提示
+  reload-success: "%prefix%§a配置重载成功！"
   # 无法破坏方块的提示
-  no-break: "§c你不能破坏方块！"
+  no-break: "%prefix%§c你不能破坏方块！"
   # 无法放置方块的提示
-  no-place: "§c你不能放置方块！"
+  no-place: "%prefix%§c你不能放置方块！"
+  # 无法丢弃物品的提示
+  no-drop: "%prefix%§c你不能丢弃物品！"
+  # 无法拾取物品的提示
+  no-pickup: "%prefix%§c你不能拾取物品！"

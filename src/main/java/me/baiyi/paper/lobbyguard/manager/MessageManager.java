@@ -2,7 +2,7 @@ package me.baiyi.paper.lobbyguard.manager;
 
 public class MessageManager {
     private static MessageManager instance;
-    private final ConfigManager configManager;
+    private ConfigManager configManager;
 
     private MessageManager() {
         this.configManager = ConfigManager.getInstance();
@@ -13,6 +13,10 @@ public class MessageManager {
             instance = new MessageManager();
         }
         return instance;
+    }
+
+    public void reloadMessages() {
+        this.configManager = ConfigManager.getInstance();
     }
 
     public String getMessage(String path, String defaultValue) {

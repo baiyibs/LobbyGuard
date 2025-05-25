@@ -2,7 +2,7 @@ package me.baiyi.paper.lobbyguard.manager;
 
 public class FeatureManager {
     private static FeatureManager instance;
-    private final ConfigManager configManager;
+    private ConfigManager configManager;
 
     private FeatureManager() {
         this.configManager = ConfigManager.getInstance();
@@ -13,6 +13,10 @@ public class FeatureManager {
             instance = new FeatureManager();
         }
         return instance;
+    }
+
+    public void reloadFeatures() {
+        this.configManager = ConfigManager.getInstance();
     }
 
     public boolean isCreatureSpawnEnabled() {

@@ -39,3 +39,10 @@ permissions:
     default: op
     children:
       lobbyguard.admin: true
+
+commands:
+  guard:
+    description: LobbyGuard 主命令
+    usage: /guard reload - 重新加载配置
+    permission: lobbyguard.admin
+    permission-message: §c你没有权限使用此命令！
