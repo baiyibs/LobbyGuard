@@ -19,3 +19,4 @@ target/
 
 # Maven
 .mvn/
+.vscode/settings.json
