@@ -1,0 +1,33 @@
+# LobbyGuard Configuration
+
+# 功能开关
+features:
+  # 是否允许生物生成
+  creature-spawn: false
+  # 是否允许破坏方块
+  block-break: false
+  # 是否允许放置方块
+  block-place: false
+  # 是否允许玩家受到伤害
+  player-damage: false
+  # 是否启用饥饿度
+  hunger: false
+  # 是否允许丢弃物品
+  item-drop: false
+  # 是否允许拾取物品
+  item-pickup: false
+  # 是否在加入时设置为冒险模式
+  adventure-on-join: true
+  # 是否在加入时清空背包
+  clear-inventory-on-join: true
+
+# 消息设置
+messages:
+  # 加入消息 (%player% 将被替换为玩家名)
+  join: "§a%player% 加入了游戏！"
+  # 离开消息 (%player% 将被替换为玩家名)
+  quit: "§c%player% 离开了游戏！"
+  # 无法破坏方块的提示
+  no-break: "§c你不能破坏方块！"
+  # 无法放置方块的提示
+  no-place: "§c你不能放置方块！"
