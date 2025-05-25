@@ -19,9 +19,3 @@
 - `lobbyguard.pickup` - 拾取物品
 - `lobbyguard.adventure` - 更改游戏模式
 - `lobbyguard.inventory` - 保留背包
-
-## 安装
-
-1. 下载插件
-2. 放入plugins文件夹
-3. 重启服务器
